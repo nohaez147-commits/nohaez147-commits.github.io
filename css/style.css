@@ -1,0 +1,446 @@
+:root {
+  --pink-bg: #fcebeb;
+  --pink-soft: #fff6f6;
+  --pink-card: #fffafb;
+  --pink-accent: #f7d6d6;
+  --pink-strong: #f4b8b8;
+  --pink-line: #f7baba;
+  --ink: #3a3a3a;
+  --muted: #6b6b6b;
+  --white: #ffffff;
+  --shadow: 0 18px 40px rgba(214, 132, 132, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Nunito", "Comic Sans MS", "Chalkboard SE", sans-serif;
+  background: radial-gradient(circle at top left, #fff 0, var(--pink-bg) 45%, #f8dcdc 100%);
+  color: var(--ink);
+  padding: 24px 16px 40px;
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  overflow: visible; /* <--- CAMBIA 'hidden' POR 'visible' */
+  position: relative;
+  border: 1px solid #f3d5d5;
+}
+
+/* Regla para colocar a Messi en la esquina inferior derecha */
+.messi-asomado {
+  position: absolute;
+  bottom: 0;
+  right: -30px; /* <--- Con 'overflow: visible', este valor mostrará la mano sobre el rosa */
+  height: 480px;
+  width: auto;
+  pointer-events: none;
+  z-index: 10;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 28px;
+  background: #fff7f7;
+  border-bottom: 1px solid #f3e0e0;
+}
+
+.logo {
+  font-family: "Pacifico", cursive;
+  font-size: 1.55rem;
+  color: #444;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.92rem;
+  padding: 7px 12px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--pink-accent);
+  color: #333;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding: 48px 32px 56px;
+  position: relative;
+}
+
+.left-panel {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.title-wrap h1 {
+  font-family: "Pacifico", cursive;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 400;
+  line-height: 1;
+  display: inline-block;
+  padding: 4px 28px 10px;
+  background: linear-gradient(transparent 62%, #f7c8c8 62%);
+  border-radius: 40px;
+}
+
+.title-wrap h2 {
+  font-family: "Pacifico", cursive;
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+.poem {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.countries {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+
+.flag-card img {
+  width: 58px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.flag-card p {
+  margin-top: 8px;
+  font-size: 0.92rem;
+}
+
+.heart-path {
+  min-width: 84px;
+  color: #e08989;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.heart-path::before,
+.heart-path::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  width: 28px;
+  border-top: 2px dashed #e7a0a0;
+}
+
+.heart-path::before {
+  left: 0;
+}
+
+.heart-path::after {
+  right: 0;
+}
+
+.caption {
+  font-size: 0.92rem;
+  color: #777;
+}
+
+.equation {
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: var(--pink-soft);
+  padding: 14px 10px;
+  border-radius: 16px;
+  font-size: 0.78rem;
+}
+
+.eq-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.eq-icon {
+  font-size: 1.2rem;
+}
+
+.eq-op {
+  color: #c98989;
+  font-weight: 800;
+}
+
+.btn {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.btn-dark {
+  background: #1f1f1f;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;
+}
+
+.farewell {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(80, 40, 40, 0.35);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 20;
+}
+
+.farewell.open {
+  display: flex;
+}
+
+.farewell-card {
+  max-width: 460px;
+  background: #fff;
+  border-radius: 22px;
+  padding: 28px 26px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid #f3d5d5;
+}
+
+.farewell-heart {
+  font-size: 2rem;
+  color: #e08989;
+}
+
+.farewell-card h2 {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  margin: 6px 0 14px;
+}
+
+.farewell-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.doodle {
+  position: absolute;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.doodle.plane {
+  top: 92px;
+  left: 72%;
+  font-size: 1.4rem;
+}
+
+.doodle.heart-1 {
+  top: 78px;
+  left: 18px;
+}
+
+.doodle.heart-2 {
+  right: 18px;
+  bottom: 88px;
+}
+
+.inner {
+  padding: 28px 32px 40px;
+}
+
+.page-title {
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.lead {
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* Configuración para tarjetas más anchas y compactas */
+.grid {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.grid .polaroid {
+  width: 310px;          /* Más ancha para que el texto ocupe menos líneas */
+  height: 250px;         /* Altura fija para que todas mider lo mismo */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.grid .polaroid img {
+  width: 100%;
+  height: 120px !important; /* Foto bajita y apaisada */
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.grid .polaroid p {
+  font-size: 0.78rem;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.25;
+  text-align: center;
+}
+.card,
+.note,
+.surprise,
+.ring {
+  background: var(--pink-soft);
+  border: 1px dashed #f0c4c4;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 12px 12px 18px 12px;
+  border-radius: 12px;
+  border: 1px solid #f0d0d0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.08);
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(1.8deg);
+}
+
+.swatch {
+  height: 120px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #ffd6de, #ffe9c6);
+}
+
+.messages-list,
+.chat-thread {
+  display: grid;
+  gap: 12px;
+}
+
+.locked {
+  filter: blur(0);
+  position: relative;
+}
+
+.locked .secret {
+  display: none;
+}
+
+.locked.open .secret {
+  display: block;
+}
+
+.locked.open .lock-hint {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
+
+  .equation {
+    grid-template-columns: repeat(3, auto);
+    row-gap: 10px;
+  }
+}
+/* Layout para la vista de Mensajes */
+.mensajes-layout {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 28px;
+  align-items: stretch !important; /* Estira la columna de mensajes a la altura de la foto */
+  margin-top: 0px;
+  width: 100%;
+}
+
+.mensajes-list {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye las tarjetas verticalmente de borde a borde */
+  gap: 15px;
+}
+
+.mensajes-list .card {
+  padding: 22px 20px; /* Tarjetas más altas e imponentes */
+}
+
+.foto-lado {
+  width: 420px;
+  flex-shrink: 0;
+  margin-top: -60px !important;
+}
+
+/* Ajuste proporcional de la imagen */
+.foto-lado .polaroid img {
+  height: 420px !important;
+}
+/* Reordenamiento de las fotos en la Galería */
+.grid > *:nth-child(1) { order: 2; } /* Año 1 pasa a ser 2° */
+.grid > *:nth-child(2) { order: 3; } /* Año 2 pasa a ser 3° */
+.grid > *:nth-child(3) { order: 4; } /* Año 3 pasa a ser 4° */
+.grid > *:nth-child(4) { order: 5; } /* Gato Amor pasa a ser 5° (Último) */
+.grid > *:nth-child(5) { order: 1; } /* Minecraft pasa a ser 1° (Primero) */
